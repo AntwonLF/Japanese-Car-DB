@@ -1,0 +1,77 @@
+[
+    {
+        "make": "Toyota",
+        "model": "Supra",
+        "year": 1994
+    },
+    {
+        "make": "Nissan",
+        "model": "Skyline GT-R",
+        "year": 1999
+    },
+    {
+        "make": "Mazda",
+        "model": "RX-7",
+        "year": 1995
+    },
+    {
+        "make": "Honda",
+        "model": "NSX",
+        "year": 1991
+    },
+    {
+        "make": "Subaru",
+        "model": "Impreza WRX STI",
+        "year": 2004
+    },
+    {
+        "make": "Mitsubishi",
+        "model": "Lancer Evolution",
+        "year": 2005
+    },
+    {
+        "make": "Nissan",
+        "model": "Silvia S15",
+        "year": 2000
+    },
+    {
+        "make": "Toyota",
+        "model": "AE86",
+        "year": 1986
+    },
+    {
+        "make": "Honda",
+        "model": "Civic Type R",
+        "year": 1999
+    },
+    {
+        "make": "Mazda",
+        "model": "MX-5 Miata",
+        "year": 1990
+    },
+    {
+        "make": "Nissan",
+        "model": "Fairlady Z",
+        "year": 1970
+    },
+    {
+        "make": "Toyota",
+        "model": "MR2",
+        "year": 1991
+    },
+    {
+        "make": "Nissan",
+        "model": "350Z",
+        "year": 2003
+    },
+    {
+        "make": "Subaru",
+        "model": "BRZ",
+        "year": 2012
+    },
+    {
+        "make": "Honda",
+        "model": "S2000",
+        "year": 1999
+    }
+]
