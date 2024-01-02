@@ -1,9 +1,11 @@
-import mongoose from "mongoose"
-import Car from '../models/Car'
+import mongoose from 'mongoose'
+import Car from '../models/Car.js'
 
+const Schema = mongoose.Schema
 
-const userSchema = new mongoose.Schema({
-    email: String,
+const userSchema = new Schema({
+    email: String, 
+    password: String,
     profileName: { 
         type: String, 
         unique: true, 
@@ -16,11 +18,9 @@ const userSchema = new mongoose.Schema({
     },
     userCar: [Car.schema],
     likedCars: [Car.schema],
-    password: String 
+   
 });
 
 const User = mongoose.model('User', userSchema)
 
-export {
-    User
-}
+export default User

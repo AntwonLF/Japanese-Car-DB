@@ -1,6 +1,6 @@
-import Car from '../models/Car'
+import Car from '../models/Car.js'
 
-export const getAllCars = async (req, res) => {
+ const getAllCars = async (req, res) => {
     try {
         const cars = await Car.find();
         res.status(200). json(cars);
@@ -10,7 +10,7 @@ export const getAllCars = async (req, res) => {
 };
 
 
-export const getCarById = async (req, res) => {
+ const getCarById = async (req, res) => {
     try {
         const car = await Car.findById(req.params.id);
         if (!car) {
@@ -22,7 +22,7 @@ export const getCarById = async (req, res) => {
     }
 };
 
-export const createCar = async (req, res) => {
+ const createCar = async (req, res) => {
     const newCar = new Car(req. body);
     try {
         const savedCar = await newCar.save();
@@ -32,16 +32,16 @@ export const createCar = async (req, res) => {
     }
 };
 
-export const updateCar = async (req, res) => {
+const updateCar = async (req, res) => {
     try {
-        const updateCar = await Car.findIdAndUpdate(req.params.id, req.body, { new: true });
+        const updatedCar = await Car.findIdAndUpdate(req.params.id, req.body, { new: true });
         res.status(200).json(updatedCar);
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
 };
 
-export const deleteCar = async (req, res) => {
+const deleteCar = async (req, res) => {
     try {
         const deletedCar = await Car.findByIdAndDelete(req.params.id);
         res.status(200).json(deletedCar);
@@ -49,3 +49,11 @@ export const deleteCar = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+export {
+    getAllCars,
+    getCarById,
+    createCar,
+    updateCar,
+    deleteCar
+}

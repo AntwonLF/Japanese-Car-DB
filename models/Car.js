@@ -1,8 +1,8 @@
-import mongoose from "mongoose"
+import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const carSchema = new mongoose.Schema({
+const carSchema = new Schema({
     make: String,
     model: String,
     year: Number,
@@ -11,6 +11,4 @@ const carSchema = new mongoose.Schema({
 
 const Car = mongoose.model('Car', carSchema)
 
-export {
-    Car
-}
+export default Car

@@ -1,15 +1,15 @@
-import User from '../models/User';
-import Car from '../models/Car'
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import User from '../models/User.js';
+import Car from '../models/Car.js';
+// import bcrypt from 'bcryptjs';
 
 
 
-export const registerUser = async (req, res) => {
+
+ const registerUser = async (req, res) => {
     try {
         const { password } = req.body;
         const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = new User({ ..req.body, password: hashedPassword });
+        const newUser = new User({ ...req.body, password: hashedPassword });
         const savedUser = await newUser.save();
         res.status(201).json(savedUser);
     } catch (error) {
@@ -17,14 +17,20 @@ export const registerUser = async (req, res) => {
     }
 };
 
-export const loginUser = async (req, res) => {
+// Assuming express-session is set up in your main server file
+
+ const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({ email });
+
         if (!user || !await bcrypt.compare(password, user.password)) {
-            return res.status(401).json({ message: 'Invalid credentails' });
+            return res.status(401).json({ message: 'Invalid credentials' });
         }
-        const token = jwt.sign({ id: user._id }, SECRET_KEY, { expiresIn: '1h' });
+
+        // Instead of creating a JWT token, initialize a session
+        req.session.userId = user._id;
+        res.status(200).json({ message: 'Login successful' });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -32,22 +38,12 @@ export const loginUser = async (req, res) => {
 
 
 
+
 // Icebox Goals
 
 
-// function to create a user profile
-export const createUserProfile = async (req, res) => {
- try {
-    const newUser = new User(req.body);
-    const savedUser = await newUser.save();
-    res.status(201).json(savedUser);
- } catch (error) {
-    res.status(400).json({ message: error.message });
-   }
-};
-
 // Function to add a car to a user's profile
-export const addCarToUserProfile = async (req, res) =>  { 
+ const addCarToUserProfile = async (req, res) =>  { 
    try {
     const user = await User.findById(req.params.userId);
     if (!user) {
@@ -64,10 +60,11 @@ export const addCarToUserProfile = async (req, res) =>  {
 };
 
 // Function to update a car in a user's profile
-export const updateCarInUserProfile = async (req, res) => {
+const updateCarInUserProfile = async (req, res) => {
     try {
         const user = await User.findById(req.params.userId);
         const car = await Car.findByIdAndUpdate(req.params.carId, req.body, { new: true });
+
         // Find and update the car in the user's profile
         const carIndex = user.userCar.findIndex(c => c._id.toString() === req.params.carId);
         if (carIndex > -1) {
@@ -83,7 +80,7 @@ export const updateCarInUserProfile = async (req, res) => {
 };
 
 // Function to like a car and add to user's liked cars
-export const likeCar = async (req, res) => {
+ const likeCar = async (req, res) => {
     try {
         const user = await User.findById(req.params.userId);
         const car = await Car.findById (req.params.carId);
@@ -98,13 +95,24 @@ export const likeCar = async (req, res) => {
     }
 };
 
-export const unlikeCar = async (req, res) => {
+
+// Function to unlike a car and remove from user's liked cars
+const unlikeCar = async (req, res) => {
     try {
         const user = await User.findById(req.params.userId);
-        user.likedCars = users.likedCars.filter(car => car._id.toString() !== req.params.carId);
+        user.likedCars = user.likedCars.filter(car => car._id.toString() !== req.params.carId);
         await user.save();
         res.status(200).json(user);
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
 };
+
+export {
+    registerUser,
+    loginUser,
+    addCarToUserProfile,
+    updateCarInUserProfile,
+    likeCar,
+    unlikeCar
+}
