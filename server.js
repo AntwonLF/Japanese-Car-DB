@@ -4,6 +4,8 @@ import session from 'express-session';
 import router  from './routes/express.js'; 
 import './config/database.js'; 
 import 'dotenv/config.js';
+import connectDB from './config/database.js';
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,3 +26,5 @@ app.use('/api', router);
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+connectDB();

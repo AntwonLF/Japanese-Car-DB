@@ -1,7 +1,11 @@
+import 'dotenv/config.js';
 import mongoose from 'mongoose';
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import Car  from '../models/Car.js'; 
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 
 // Connection to DB
