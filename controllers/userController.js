@@ -1,40 +1,65 @@
+import bcrypt from 'bcrypt';
 import User from '../models/User.js';
 import Car from '../models/Car.js';
-// import bcrypt from 'bcryptjs';
 
 
 
 
  const registerUser = async (req, res) => {
     try {
-        const { password } = req.body;
+        const { email, password } = req.body;
+
+        //check if email already exists
+        const existingUser = await User.findOne ({ email });
+        if (existingUser) {
+            return res.status(400).json({ message: "Email already in use." });
+        }
+
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({ ...req.body, password: hashedPassword });
         const savedUser = await newUser.save();
-        res.status(201).json(savedUser);
+
+        res.status(201).json({ message: "User registered successfully", user: savedUser });
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        if (error.code === 11000) {
+            return res.status(400).json({ message: 'Email already in use' });
+        }
+        res.status(500).json({ message: 'Server error' });
     }
 };
-
-// Assuming express-session is set up in your main server file
 
  const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({ email });
 
-        if (!user || !await bcrypt.compare(password, user.password)) {
+        if (!user) {
+            return res.status(401).json({ message: 'Invalid credentails' });
+        }
+            
+        const isMatch = await bcrypt.compare(password, user.password)
+        if (!isMatch) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
-
+        
         // Instead of creating a JWT token, initialize a session
         req.session.userId = user._id;
-        res.status(200).json({ message: 'Login successful' });
+        res.json({ message: 'Login successful', userId: user._id });
+
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: 'Server error' });
     }
 };
+
+// const logoutUser = (req, res) => {
+//     req.session.destroy(err => {
+//         if (err) {
+//             return res.status(500).json({ message: 'Error occurred during logout' });
+//         }
+//         res.json({ message: 'Logout successful' });
+//     });
+// };
+
 
 
 
@@ -111,6 +136,7 @@ const unlikeCar = async (req, res) => {
 export {
     registerUser,
     loginUser,
+    // logoutUser,
     addCarToUserProfile,
     updateCarInUserProfile,
     likeCar,
