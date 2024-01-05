@@ -15,10 +15,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.static('front-end'));
-app.use(cors({
-    origin: ['http://127.0.0.1:5501', 'https://jdm-r-us.netlify.app'],
-    credentials: true
-}));
+const corsOptions = {
+    origin: 'https://jdm-r-us.netlify.app', 
+    credentials: true 
+};
 app.use(express.json());
 app.use((err, req, res, next) => {
     console.error(err.stack);
@@ -44,6 +44,7 @@ app.use(session({
 
 // Use the routes
 app.use('/api', router);
+app.use(cors(corsOptions));
 app.get('/', (req, res) => {
     res.redirect('/api/cars');
 });
