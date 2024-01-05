@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import session from 'express-session';
 import cors from 'cors';
-import router  from './routes/express.js'; 
+import router  from './routes/index.js'; 
 import './config/database.js'; 
 import 'dotenv/config.js';
 import connectDB from './config/database.js';
