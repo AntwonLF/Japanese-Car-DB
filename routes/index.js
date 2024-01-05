@@ -11,7 +11,6 @@ const router = Router();
 router.get('/cars', getAllCars);
 router.get('/cars/:id', getCarById);
 router.post('/cars', createCar);
-router.put('/cars/:id', updateCar);
 router.delete('/cars/:id', deleteCar);
 
 // User routes

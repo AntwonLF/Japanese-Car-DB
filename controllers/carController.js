@@ -32,14 +32,7 @@ import Car from '../models/Car.js'
     }
 };
 
-const updateCar = async (req, res) => {
-    try {
-        const updatedCar = await Car.findIdAndUpdate(req.params.id, req.body, { new: true });
-        res.status(200).json(updatedCar);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
-};
+
 
 const deleteCar = async (req, res) => {
     try {
@@ -54,6 +47,5 @@ export {
     getAllCars,
     getCarById,
     createCar,
-    updateCar,
     deleteCar
 }

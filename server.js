@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static('front-end'));
 app.use(cors({
-    origin: ['http://127.0.0.1:5501', 'https://polite-figolla-846d39.netlify.app'],
+    origin: ['http://127.0.0.1:5501', 'https://jdm-r-us.netlify.app'],
     credentials: true
 }));
 app.use(express.json());
