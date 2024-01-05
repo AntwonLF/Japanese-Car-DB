@@ -64,14 +64,14 @@ const loginUser = async (req, res) => {
     }
 };
 
-// const logoutUser = (req, res) => {
-//     req.session.destroy(err => {
-//         if (err) {
-//             return res.status(500).json({ message: 'Error occurred during logout' });
-//         }
-//         res.json({ message: 'Logout successful' });
-//     });
-// };
+const logoutUser = (req, res) => {
+    req.session.destroy(err => {
+        if (err) {
+            return res.status(500).json({ message: 'Error occurred during logout' });
+        }
+        res.json({ message: 'Logout successful' });
+    });
+};
 
 
 
@@ -149,7 +149,7 @@ const unlikeCar = async (req, res) => {
 export {
     registerUser,
     loginUser,
-    // logoutUser,
+    logoutUser,
     addCarToUserProfile,
     updateCarInUserProfile,
     likeCar,

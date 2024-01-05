@@ -13,6 +13,21 @@ document.addEventListener('DOMContentLoaded', function() {
             carClone.querySelector('.car-year').textContent = `Year: ${car.year}`;
             container.appendChild(carClone);
         });
+        document.getElementById('logout-button').addEventListener('click', function(){
+            fetch('http://localhost:3000/api/users/logout', {
+                method: 'POST',
+                credentials: 'include'
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = '../login/login.html';
+                } else {
+                    console.error('Logout failed');
+                }
+            })
+        })
+
+
     })
     .catch(error => console.error('Error', error));
 })
