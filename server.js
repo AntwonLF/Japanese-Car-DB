@@ -24,6 +24,7 @@ app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something broke!');
    });
+
    
 
 // Session configuration
@@ -51,5 +52,6 @@ app.use('/api', router);
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
 
 connectDB();

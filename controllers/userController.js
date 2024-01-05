@@ -8,45 +8,58 @@ import Car from '../models/Car.js';
  const registerUser = async (req, res) => {
     try {
         const { email, password } = req.body;
+        const emailLowerCase = email.toLowerCase();
+
+        // Log the email being checked
+        console.log("Checking registration for email:", emailLowerCase);
 
         //check if email already exists
-        const existingUser = await User.findOne ({ email });
+        const existingUser = await User.findOne ({ email: emailLowerCase });
+        console.log("Existing User", existingUser);
+
         if (existingUser) {
+            console.log("Email already in use:", emailLowerCase);
             return res.status(400).json({ message: "Email already in use." });
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({ ...req.body, password: hashedPassword });
         const savedUser = await newUser.save();
+        console.log("Saved User: ", savedUser);
 
         res.status(201).json({ message: "User registered successfully", user: savedUser });
     } catch (error) {
-        if (error.code === 11000) {
-            return res.status(400).json({ message: 'Email already in use' });
-        }
+       console.error('Error in registerUser:', error);
         res.status(500).json({ message: 'Server error' });
     }
 };
 
- const loginUser = async (req, res) => {
+const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
+        console.log(`Attempting login for email: ${email}`); // Debug log
+
         const user = await User.findOne({ email });
 
         if (!user) {
-            return res.status(401).json({ message: 'Invalid credentails' });
-        }
-            
-        const isMatch = await bcrypt.compare(password, user.password)
-        if (!isMatch) {
+            console.log('User not found'); // Debug log
             return res.status(401).json({ message: 'Invalid credentials' });
         }
-        
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            console.log('Password does not match'); // Debug log
+            return res.status(401).json({ message: 'Invalid credentials' });
+        }
+
         // Instead of creating a JWT token, initialize a session
         req.session.userId = user._id;
+        console.log(`User ${user._id} logged in`); // Debug log
+
         res.json({ message: 'Login successful', userId: user._id });
 
     } catch (error) {
+        console.error('Login error:', error); // Error log
         res.status(500).json({ message: 'Server error' });
     }
 };
