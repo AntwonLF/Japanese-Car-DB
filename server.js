@@ -44,6 +44,9 @@ app.use(session({
 
 // Use the routes
 app.use('/api', router);
+app.get('/', (req, res) => {
+    res.redirect('/api/cars');
+});
 
 
 app.listen(PORT, () => {
