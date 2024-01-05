@@ -41,9 +41,6 @@ app.use(session({
     maxAge: 1000 * 60 * 60 * 24
     }
 }));
-app.get('/', (req, res) => {
-    console.log(req.sessionID);
-})
 
 // Use the routes
 app.use('/api', router);
