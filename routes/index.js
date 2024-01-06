@@ -13,6 +13,8 @@ router.post('/cars', createCar); // Create a new car
 router.post('/users/register', registerUser); // Register a new user
 router.post('/users/login', loginUser); // Login a user
 router.post('/users/logout', logoutUser); // Logout a user
+router.get('/users/:id', getUserById); // Get a specific user by ID
+
 
 // User profile and interactions routes
 router.post('/users/:userId/cars', addCarToUserProfile); // Add a car to a user's profile

@@ -5,6 +5,7 @@ import Car from '../models/Car.js';
 
 
 
+
  const registerUser = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -71,6 +72,23 @@ const logoutUser = (req, res) => {
         }
         res.json({ message: 'Logout successful' });
     });
+};
+
+const getUserById = async (req, res) => {
+    try {
+        const userId = req.params.id;
+        if (!mongoose.Types.ObjectId.isValid(userId)) {
+            return res.status(400).json({ message: 'Invalid User ID' });
+        }
+
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
 };
 
 
@@ -150,6 +168,7 @@ export {
     registerUser,
     loginUser,
     logoutUser,
+    getUserById,
     addCarToUserProfile,
     updateCarInUserProfile,
     likeCar,
