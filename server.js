@@ -3,18 +3,17 @@ import express from 'express';
 import mongoose from 'mongoose';
 import session from 'express-session';
 import cors from 'cors';
+import router from './routes/index.js'; 
+import 'dotenv/config.js';
+import connectDB from './config/database.js';
 import bcrypt from 'bcrypt';
 import MongoStore from 'connect-mongo';
-import dotenv from 'dotenv/config'; // Considered best practice to import as 'dotenv/config'
-import connectDB from './config/database.js';
-import router from './routes/index.js'; 
-import './config/database.js'; 
 
 // Initialize express app
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Static files
+// Middleware for serving static files
 app.use(express.static('front-end'));
 
 // CORS configuration
@@ -22,12 +21,11 @@ const corsOptions = {
     origin: '*', 
     credentials: true 
 };
-app.use(cors(corsOptions));
 
-// Body Parser Middleware
+// Middleware for parsing JSON
 app.use(express.json());
 
-// Error Handling Middleware
+// Error handling middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something broke!');
@@ -39,25 +37,27 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
-        mongoUrl: process.env.MONGO_URI, 
+        mongoUrl: 'mongodb+srv://Test1234:Test1234@cluster0.16dhpdw.mongodb.net/Japanes-Car-API?retryWrites=true&w=majority',
         collectionName: 'sessions'
     }),
-    cookie: {
+    cookie: { 
         secure: false,
-        maxAge: 1000 * 60 * 60 * 24 // 1 day
+        maxAge: 1000 * 60 * 60 * 24 // 24 hours
     }
 }));
 
-// API routes
-app.use('/api', router);
+// Routing configuration
+app.use('/api', cors(corsOptions), router);
 
-// Redirect root to /api/cars
+// Root route redirect
 app.get('/', (req, res) => {
     res.redirect('/api/cars');
 });
 
-// Start server and connect to DB
+// Start server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+// Connect to database
 connectDB();
