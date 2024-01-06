@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { getAllCars, createCar, getCarById } from '../controllers/carController.js';
-import { registerUser, loginUser, logoutUser, addCarToUserProfile, updateCarInUserProfile, likeCar, unlikeCar } from '../controllers/userController.js';
+import { registerUser, loginUser, logoutUser, getUserById, addCarToUserProfile, updateCarInUserProfile, likeCar, unlikeCar } from '../controllers/userController.js';
 
 const router = Router();
 
