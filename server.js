@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static('front-end'));
 const corsOptions = {
-    origin: 'https://jdm-r-us.netlify.app', 
+    origin: '*', 
     credentials: true 
 };
 app.use(express.json());
