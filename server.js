@@ -43,8 +43,8 @@ app.use(session({
 }));
 
 // Use the routes
-app.use('/api', router);
-app.use(cors(corsOptions));
+app.use('/api',cors(corsOptions), router);
+// app.use(cors(corsOptions));
 app.get('/', (req, res) => {
     res.redirect('/api/cars');
 });
