@@ -34,18 +34,9 @@ import Car from '../models/Car.js'
 
 
 
-const deleteCar = async (req, res) => {
-    try {
-        const deletedCar = await Car.findByIdAndDelete(req.params.id);
-        res.status(200).json(deletedCar);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
 
 export {
     getAllCars,
     getCarById,
     createCar,
-    deleteCar
 }

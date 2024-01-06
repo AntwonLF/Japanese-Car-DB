@@ -1,28 +1,23 @@
 import { Router } from 'express';
-import bcrypt from 'bcrypt';
-import { getAllCars, createCar, getCarById, updateCar, deleteCar } from '../controllers/carController.js';
+import { getAllCars, createCar, getCarById } from '../controllers/carController.js';
 import { registerUser, loginUser, logoutUser, addCarToUserProfile, updateCarInUserProfile, likeCar, unlikeCar } from '../controllers/userController.js';
-
-
 
 const router = Router();
 
-// Car routes
-router.get('/cars', getAllCars);
-router.get('/cars/:id', getCarById);
-router.post('/cars', createCar);
-router.delete('/cars/:id', deleteCar);
+// Car-related routes
+router.get('/cars', getAllCars); // Get all cars
+router.get('/cars/:id', getCarById); // Get a specific car by ID
+router.post('/cars', createCar); // Create a new car
 
-// User routes
-router.post('/users/register', registerUser);
-router.post('/users/login', loginUser);
-router.post('/users/logout', logoutUser);
+// User authentication routes
+router.post('/users/register', registerUser); // Register a new user
+router.post('/users/login', loginUser); // Login a user
+router.post('/users/logout', logoutUser); // Logout a user
 
-// User profile routes
-router.post('/users/:userId/cars', addCarToUserProfile)
-router.put('/users/:userId/cars/:carId', updateCarInUserProfile);
-router.post('/users/:userId/like/:carId', likeCar);
-router.post('/users/:userId/unlike/:carid', unlikeCar);
+// User profile and interactions routes
+router.post('/users/:userId/cars', addCarToUserProfile); // Add a car to a user's profile
+router.put('/users/:userId/cars/:carId', updateCarInUserProfile); // Update a car in a user's profile
+router.post('/users/:userId/like/:carId', likeCar); // Like a car
+router.post('/users/:userId/unlike/:carId', unlikeCar); // Unlike a car
 
-export default router
-
+export default router;
