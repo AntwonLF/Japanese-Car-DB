@@ -10,9 +10,14 @@ import Car from '../models/Car.js'
 };
 
 
- const getCarById = async (req, res) => {
+const getCarById = async (req, res) => {
     try {
-        const car = await Car.findById(req.params.id);
+        const carId = req.params.id;
+        if (!mongoose.Types.ObjectId.isValid(carId)) {
+            return res.status(400).json({ message: 'Invalid Car ID' });
+        }
+
+        const car = await Car.findById(carId);
         if (!car) {
             return res.status(404).json({ message: 'Car not found' });
         }
