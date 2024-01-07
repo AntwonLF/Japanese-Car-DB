@@ -77,18 +77,22 @@ const logoutUser = (req, res) => {
 
 
 // Function to add a car to a user's profile
- const addCarToUserProfile = async (req, res) =>  {
+ const addCarToUserProfileByEmail = async (req, res) =>  {
     try {
-        const userId = req.params.userId;
-        const carData = req.body;
+        const userEmail = req.params.email.toLowerCase;
+        const user = await User.findOne({ email: userEmail });
 
-        if (!userCars[userId]) {
-            userCars[userId] = [];
+        if (!user)
+        return res.status(404).json({ message: 'User not found' });
         }
 
-        userCars[userId].push(carData);
+        const newCar = new Car(req.body);
+        const savedCar = await newCar.save();
 
-        res.status(201).json(userCars[userId]);
+        user.userCar.push(savedCar);
+        await user.save();
+
+        res.status(201).json(user);
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
@@ -147,7 +151,7 @@ export {
     registerUser,
     loginUser,
     logoutUser,
-    addCarToUserProfile,
+    addCarToUserProfileByEmail,
     updateCarInUserProfile,
     likeCar,
     unlikeCar
