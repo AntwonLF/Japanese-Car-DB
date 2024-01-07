@@ -37,6 +37,27 @@ const getCarById = async (req, res) => {
     }
 };
 
+const updateCarByDetails = async (req, res) => {
+    try {
+        const { make, model, year } = req.params;
+        const updateData = req.body;
+
+        // Find the car by make, model, and year
+        const car = await Car.findOne({ make, model, year });
+
+        if (!car) {
+            return res.status(404).json({ message: 'Car not found' });
+        }
+
+        // Update the car with new data
+        const updatedCar = await Car.findByIdAndUpdate(car._id, updateData, { new: true });
+        res.status(200).json(updatedCar);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+
 
 
 
@@ -44,4 +65,5 @@ export {
     getAllCars,
     getCarById,
     createCar,
+    updateCarByDetails
 }
