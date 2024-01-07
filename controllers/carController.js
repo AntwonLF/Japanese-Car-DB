@@ -57,6 +57,21 @@ const updateCarByDetails = async (req, res) => {
     }
 };
 
+const deleteCarByDetails = async (req, res) => {
+    try {
+        const { make, model, year } = req.params;
+        
+        const car = await Car.findOne({ make, model, year });
+
+        if (!car) {
+            return res.status(404).json({ message: 'Car not found' });
+        }
+        await Car.findByIdAndDelete(car._id);
+        res.status(200).json({ message: 'Car deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
 
 
 
@@ -65,5 +80,6 @@ export {
     getAllCars,
     getCarById,
     createCar,
-    updateCarByDetails
+    updateCarByDetails,
+    deleteCarByDetails
 }

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getAllCars, createCar, getCarById, updateCarByDetails } from '../controllers/carController.js';
+import { getAllCars, createCar, getCarById, updateCarByDetails, deleteCarByDetails } from '../controllers/carController.js';
 import { 
     registerUser, 
     loginUser, 
@@ -18,6 +18,8 @@ router.get('/cars', getAllCars); // Get all cars
 router.get('/cars/:id', getCarById); // Get a specific car by ID
 router.post('/cars', createCar); // Create a new car
 router.put('/cars/:make/:model/:year', updateCarByDetails); // Update a car by make, model, and year
+router.delete('/cars/:make/:model/:year', deleteCarByDetails); // Delete a car by make, model, and year
+
 
 
 // User authentication routes
