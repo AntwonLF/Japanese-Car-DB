@@ -40,7 +40,8 @@ const loginUser = async (req, res) => {
         const { email, password } = req.body;
         console.log(`Attempting login for email: ${email}`); // Debug log
 
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ email: email.toLowerCase() });
+
 
         if (!user) {
             console.log('User not found'); // Debug log
@@ -77,13 +78,13 @@ const logoutUser = (req, res) => {
 
 
 // Function to add a car to a user's profile
- const addCarToUserProfileByEmail = async (req, res) =>  {
+const addCarToUserProfileByEmail = async (req, res) => {
     try {
-        const userEmail = req.params.email.toLowerCase;
+        const userEmail = req.params.email.toLowerCase();
         const user = await User.findOne({ email: userEmail });
 
-        if (!user)
-        return res.status(404).json({ message: 'User not found' });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
         }
 
         const newCar = new Car(req.body);
@@ -96,7 +97,8 @@ const logoutUser = (req, res) => {
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
- };
+};
+
 
 // Function to update a car in a user's profile
 const updateCarInUserProfile = async (req, res) => {
