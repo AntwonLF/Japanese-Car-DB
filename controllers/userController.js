@@ -3,7 +3,7 @@ import User from '../models/User.js';
 import Car from '../models/Car.js';
 
 
-
+let userCars = {};
 
 
  const registerUser = async (req, res) => {
@@ -74,46 +74,25 @@ const logoutUser = (req, res) => {
     });
 };
 
-const getUserById = async (req, res) => {
-    try {
-        const userId = req.params.id;
-        if (!mongoose.Types.ObjectId.isValid(userId)) {
-            return res.status(400).json({ message: 'Invalid User ID' });
-        }
-
-        const user = await User.findById(userId);
-        if (!user) {
-            return res.status(404).json({ message: 'User not found' });
-        }
-        res.status(200).json(user);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
-
-
-
-
-
-// Icebox Goals
 
 
 // Function to add a car to a user's profile
- const addCarToUserProfile = async (req, res) =>  { 
-   try {
-    const user = await User.findById(req.params.userId);
-    if (!user) {
-        return res.status(404).json({ message: 'User not found' });
+ const addCarToUserProfile = async (req, res) =>  {
+    try {
+        const userId = req.params.userId;
+        const carData = req.body;
+
+        if (!userCars[userId]) {
+            userCars[userId] = [];
+        }
+
+        userCars[userId].push(carData);
+
+        res.status(201).json(userCars[userId]);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
     }
-    const newcar = new Car(req.body);
-    const savedCar = await newcar.save();
-    user.userCar.push(savedCar);
-    await user.save();
-    res.status(201).json(user);
-   } catch (error) {
-    res.status(400).json({ message: error.message });
-   }
-};
+ };
 
 // Function to update a car in a user's profile
 const updateCarInUserProfile = async (req, res) => {
@@ -168,7 +147,6 @@ export {
     registerUser,
     loginUser,
     logoutUser,
-    getUserById,
     addCarToUserProfile,
     updateCarInUserProfile,
     likeCar,

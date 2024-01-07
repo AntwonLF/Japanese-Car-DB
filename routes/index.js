@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { getAllCars, createCar, getCarById } from '../controllers/carController.js';
-import { registerUser, loginUser, logoutUser, getUserById, addCarToUserProfile, updateCarInUserProfile, likeCar, unlikeCar } from '../controllers/userController.js';
+import { registerUser, loginUser, logoutUser,  addCarToUserProfile, updateCarInUserProfile, likeCar, unlikeCar } from '../controllers/userController.js';
 
 const router = Router();
 
@@ -13,7 +13,6 @@ router.post('/cars', createCar); // Create a new car
 router.post('/users/register', registerUser); // Register a new user
 router.post('/users/login', loginUser); // Login a user
 router.post('/users/logout', logoutUser); // Logout a user
-router.get('/users/:id', getUserById); // Get a specific user by ID
 
 
 // User profile and interactions routes
