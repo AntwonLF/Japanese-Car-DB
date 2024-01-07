@@ -37,7 +37,7 @@ const getCarById = async (req, res) => {
     }
 };
 
-const updateCarByDetails = async (req, res) => {
+const updateCar = async (req, res) => {
     try {
         const { make, model, year } = req.params;
         const updateData = req.body;
@@ -57,7 +57,7 @@ const updateCarByDetails = async (req, res) => {
     }
 };
 
-const deleteCarByDetails = async (req, res) => {
+const deleteCar = async (req, res) => {
     try {
         const { make, model, year } = req.params;
         
@@ -80,6 +80,6 @@ export {
     getAllCars,
     getCarById,
     createCar,
-    updateCarByDetails,
-    deleteCarByDetails
+    updateCar,
+    deleteCar
 }
