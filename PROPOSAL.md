@@ -15,20 +15,21 @@ This project involves developing a backend CRUD (Create, Read, Update, Delete) a
 
 #### MVP Goals
 
-- 	As AAU, I can set up your user profile quickly and easily. (Create)
-- 	As AAU or Guest, I can browse the feed for updates. Also, can view detailed information (make, model, year) of any car by simply clicking on it. (Read)
-- 	As AAU, I can like Feature for Cars. Authenticated Users (AAU) can 'like' cars, with these likes showcased in their profiles."
-- 	As AAU, I can share on their profiles featuring their personal cars, complete with make, model, year, and an image."
-- 	As AAU, I can manage likes. Authenticated Users have the flexibility to remove 'likes' from their profiles as desired. (Delete)
-- 	As AAU, I can dynamic profile updates. Each new 'like' by an AAU is immediately reflected in their profile, ensuring it's always up-to-date." (Update)
+- Effortless Profile Creation: As an Authenticated User (AAU), effortlessly set up and personalize your user profile.
+- Seamless Browsing Experience: Whether as an AAU or a Guest, easily navigate through the feed for the latest updates and access comprehensive car details (make, model, year).
+- Update with Ease: As an AAU, conveniently modify car information on the feed.
+- Simple Deletion Process: Effortlessly remove car listings from the feed as an AAU.
+- Hassle-Free Car Listing: As an AAU, smoothly add new car entries to the feed.
 
 
 
 #### Stretch Goals
 
-- As AAU, I can seamlessly use Google Integration. As an Authenticated User, easily sign up using your Google account for a quick and secure registration
-- As AAU, I can Google Log-In Convenience. Experience the ease of accessing your account by logging in with your Google credentials.
-- As AAU, I can insightful comment and not only contribute to discussions but are also prominently displayed on your profile for others to see.
+- Streamlined Google Registration: As an Authenticated User (AAU), enjoy the convenience of a quick and secure sign-up process using your Google account.
+- Engaging Commenting Feature: Make meaningful contributions to discussions with the insightful commenting feature. Your thoughtful comments will not only enliven conversations but will also be prominently featured on your profile for others to explore.
+- Interactive 'Like' Functionality: Express your appreciation for cars with the 'like' feature. As an AAU, your likes on various cars will be elegantly displayed in your profile, adding a personal touch to your online presence.
+- Personal Car Showcase: Share your passion for cars by featuring your own vehicles on your profile. Display your personal collection, complete with make, model, year, and images, creating a unique and personal automotive gallery.
+- Dynamic Profile Updates: Experience real-time updates on your profile. Every new 'like' you give is instantly reflected, keeping your profile continuously current and engaging.
 
 
 #### ERD 

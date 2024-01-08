@@ -1,190 +1,121 @@
 # Japanese-Car-DB
 
+This project, Japanese-Car-DB, is a comprehensive backend CRUD (Create, Read, Update, Delete) application that serves as an extensive API for Japanese car information. Paired with a frontend designed as a virtual car meet, it allows users to access and manage details about various Japanese car makes and models, including year, specifications, and more. The application is developed using Node.js and Express for server-side operations, MongoDB for the database, and Mongoose for schema definition and interaction.
 
-# Game---Jumper- && Technologies:
+## Project Description 
 
-"Jumper" is an engaging 2D side-scrolling game meticulously crafted using the powerful combination of HTML, CSS, and JavaScript. Featuring a dynamic theme that evolves to capture the essence of various holidays, the game unfolds into a captivating spectacle year-round. Presently, it transports players into a charming snowy Christmas wonderland. Taking command of a character, potentially embodying the spirit of Santa Claus, players experience the journey symbolized by an elegantly moving circular image gracefully gliding across the canvas. The seamless deployment of the game through Netlify adds an extra layer of sophistication, enriching the overall gaming experience. Notably, this project benefits from the creative input and assistance provided by ChatGPT, a sophisticated language model developed by OpenAI.
+The Japanese-Car-DB project is designed to cater to car enthusiasts and professionals alike, providing an engaging platform to explore and manage Japanese car information. The key functionalities include:
 
-## Why---Jumper
-I chose to create "Jumper" seeking the challenge of initially developing Angry Birds. After careful consideration, I opted for a variation inspired by Flappy Bird, culminating in the unique creation that is my brainchild. "Jumper" stands out not just for its entertaining gameplay but also for its versatility. The capacity to adapt its theme for diverse holidays adds an extra layer of excitement for players. Whether it's the snowy charm of Christmas or the vibrant hues of other celebrations, "Jumper" ensures a delightful journey through the seasons.Notably, this project benefits from the creative input and assistance provided by ChatGPT, a language model developed by OpenAI.
+- **Adding New Entries**: Users can add new car entries to the database.
+- **Retrieving Car Details**: Access detailed information about different car makes and models.
+- **Updating Information**: Update existing car details to keep the database current.
+- **Deleting Entries**: Remove outdated or incorrect car entries.
+- **Virtual Car Meet**: A unique frontend experience where users can visually explore cars and their details.
 
-## Key---Features:
+## Technologies Used
 
-Seasonal Evolution: Immerse in changing themes with evolving styles to match holidays and seasons.
+- **Node.js & Express**: For robust server-side operations.
+- **MongoDB**: As the primary database for storing car data.
+- **Mongoose**: For database schema definition and interaction.
+- **Postman/Insomnia**: For testing API and frontend interactions.
+- **Additional Technologies**: User authentication, data handling with filtering, sorting, and pagination.
 
-Simple Controls: Navigate effortlessly using the space bar to make the character jump.
+## Features
 
-Snowfall Ambiance: Experience a captivating winter atmosphere with a mesmerizing cascade of falling snowflakes.
-
-Obstacle Challenge: Skillfully avoid Christmas tree obstacles amid the falling snowflakes to stay in the game.
-
-Seamless Scrolling: Enjoy a continuous scrolling background, unveiling a charming night forest scene.
-
-Festive Music: Dive into the holiday spirit with background music, currently featuring 'lofi-christmas.mp3.'
-
-Score Monitoring: Track your performance as you navigate the snowy landscape.
-
-Semi-Responsive Layout: Experience visually appealing and responsive design across some devices.
+- **CRUD Operations**: Full Create, Read, Update, Delete capabilities for car data.
+- **Virtual Car Meet Interface**: An engaging and interactive frontend.
+- **Comprehensive Car Data**: Extensive information on Japanese car makes and models.
+- **User Authentication**: Secure login and user management.
+- **Advanced Data Handling**: Enhanced user experience with data filtering, sorting, and pagination.
 
 ## Getting Started
-Click this link below to play!!
-https://jumperthgame.netlify.app
+- Access the webaite by using this link:
+https://jdm-r-us.netlify.app
 
-- Utilize the space bar for jumping, and maintain a continuous rhythm in your jumps.
-- Navigate through the winter challenge by avoiding snowflakes (identified as "Top Obstacles") and Christmas trees (identified as "Bottom Obstacles").
-- Aim to achieve the highest score possible!
+- Once you are at the Home screen you can either got to the feed or navigate to the login page.
 
-## WireFrames/ Screenshots: 
-### Before
+- At the login page signup and enjoy!!!
 
-Start
+## Wireframes/Screenshots
+ ![Alt text](<assets/Wireframe.png>)
 
- ![Alt text](<assets/Game (Start).png>)
+### Develop App
 
-In Motion 
+- HomePage
 
-![Alt text](<assets/Game (in Motion).png>)
+![Alt text](<assets/Homepage.png>)
 
-Finished 
+- Login
 
-![Alt text](<assets/Game (End).png>)
+![Alt text](<assets/Login.png>)
 
-### After
+- Feed
 
- Start 
+![Alt text](<assets/Feed.png>)
 
-![Alt text](<assets/Finished  (Start).png>)
+- Profile
 
-  In Motion 
- 
- ![Alt text](<assets/Finished (In Motion).png>)
-
-End 
-
-![Alt text](<assets/Finished (End).png>)
+![Alt text](<>)
 
 ## Timeline
-
-| Day        |   | Task                               | Blockers | Notes/ Thoughts |
-|------------|---|------------------------------------|----------|-----------------|
-| Thursday   |   | Create and present proposal        |          |  Y               |
-| Friday     |   | Create game enviroment         |          |Y                 |
-| Saturday   |   | Start building functions and impletmenting            |          |Y                 |
-| Sunday     |   | Add functionality                  |          | Y                |
-| Monday     |   | Add styling                        |          |Y                 |
-| Tuesday    |   | Finalize MVP                       |          | Y               |
-| Wedenesday |   | Work on stretch goals              |          |Y                |
-| Thursday   |   | Work on icebox items if applicable |          | N                |
-| Friday     |   | Presentation Day!                  |          |                 |
-|            |   |                                    |          |                 |
+Weekdays (Monday to Friday)
+Morning
+* 7:00 AM - 8:00 AM: Wake up and have breakfast
+* 8:00 AM - 9:00 AM: Gym session (1 hour)
+* 9:30 AM - 1:30 PM: Coding session (4 hours)
+Afternoon
+* 1:30 PM - 2:30 PM: Lunch break
+* 2:30 PM - 5:30 PM: Flexible time (additional coding, rest, or other activities)
+Evening
+* 6:00 PM - 7:00 PM: Dinner
+* 7:00 PM - 9:00 PM: Relaxation/Free Time
+* 9:00 PM - 10:00 PM: Wind down/Prepare for bed
+* 10:00 PM: Sleep
+Weekends (Saturday and Sunday)
+Morning
+* 8:00 AM - 9:00 AM: Wake up and have breakfast
+* 9:30 AM - 10:30 AM: Gym session (1 hour)
+* 11:00 AM - 12:00 PM: Leisurely activity or additional coding
+Afternoon
+* 12:00 PM - 1:00 PM: Lunch
+* 1:00 PM - 4:00 PM: Free time (could be used for coding if desired)
+Evening
+* 6:00 PM - 7:00 PM: Dinner
+* 7:00 PM onwards: Relaxation/Free Time
+* 10:00 PM: Sleep
+Special Days: Christmas Eve and Christmas Day
+Christmas Eve (December 24)
+* Follow the weekend schedule.
+* Evening: Celebrate Christmas Eve (adjust bedtime as needed).
+Christmas Day (December 25)
+* Enjoy a relaxed day with minimal coding.
+* Engage in Christmas activities and celebrations.
+* Meals and gym as per comfort and possibility.
+Notes
+* Coding: Aim for at least 4 hours of coding per day, but feel free to adjust based on your workload and energy levels.
+* Gym: Consistent gym time helps maintain physical health and mental clarity.
+* Sleep: Prioritize 8 hours of sleep to ensure rest and recovery.
+* Flexibility: Adjust the schedule as needed, especially on weekends and holidays.
 
 ## Attributions
-- Demtrice Williams (Friend, Mentor, 2 Years Dev experience)
-- Fritz 
-- Pranto, Ashiqur Rahman (YouTuber). "Jump and Run Game with HTML, CSS, and JavaScript." https://www.youtube.com/watch?v=a0TyCnFgqlk
-- Web Dev Simplified (YouTube channel). "How To Create Your First Game - JavaScript." https://www.youtube.com/watch?v=47eXVRJKdkU 
-- Images used in this project were sourced from [PNGTree](https://pngtree.com/). 
 
-// Music claim
-- Music from #Uppbeat (free for Creators!):
-https://uppbeat.io/t/all-good-folks/lo-fi-christmas
-License code: C9VGYGNJKLAQYDRM
+Credit any collaborators, mentors, or resources that contributed to the project.
 
 ## Next Steps
 
-- Transform the game theme for a different holiday.
-- Enhance the game's visual experience by incorporating a more pronounced 3D effect.
-- Implement a top three highscores feature to highlight players' achievements.
-- Integrate a playlist for a more dynamic and varied musical experience.
-- Optimize the game for responsiveness and implement touch functionality for jumping on touch-enabled devices.
+Discuss future enhancements and features planned for the project.
 
+## Technical Documentation
 
-## Game Pseudocode - Jumper
-```// Define canvas dimensions
-- Canvas width and height
+- Enhance the User Profile Page: Implement advanced functionalities such as 'likeToUserProfile' and 'AddCarToUserProfile'. This will enable users to personalize their profiles by liking other users or adding their favorite cars, fostering a more interactive and engaging community experience.
 
-// Define player properties
-- Player object
-- Player movement position (x, y)
+- Visual Upgrade for Car Database: Assign high-quality images to each car in the database. This visual representation will not only make the database more appealing but also provide users with a more immersive and informative browsing experience, allowing them to visually connect with the cars.
 
-// Define falling and jumping variables
-- Jump speed
-- Fall speed
+ - Incorporate Commenting Feature: Develop a robust commenting system that allows users to engage in discussions, share insights, and provide feedback about cars. This feature aims to enhance user interaction and community building, making the platform a dynamic space for car enthusiasts to connect and converse.
 
-// Define obstacle properties 
-- Block (circle)
-- Size 
+ - Revolutionize Car Cards with 3D Visualization and Detailed Information: Transform the presentation of cars on the platform by introducing 3D car cards. Each card will provide a detailed and interactive 3D view of the car, along with comprehensive information such as specifications, history, and unique features. This innovative approach will not only enrich the user experience but also set a new standard for online car databases.
 
-// Initialize score and label score 
-- Score = 0
-- Score label
+---
 
-// Create a function to start the game
-- Initialize game canvas object
+# Additional Notes
 
-// Game canvas object
-- Canvas element
-- Player object
-- Block object
-- Fall speed
-- Update interval
-- Game over flag
-- Running state flag
-
-// Create a player function
-- Width, height, initial position (x, y)
-- Draw player on canvas
-- Move player function
-  - Check for jumping
-  - Adjust position based on jumping or falling
-  - Check canvas boundaries
-  - Stop player at the bottom of the canvas
-- Check canvas boundaries function
-- Jump function
-- Reset jump function
-
-// Function to create an obstacle
-- Block object
-- Set block properties (width, height, speed, position)
-- Draw block on canvas
-- Move block towards the player
-- Reset block position
-
-// Function to detect collision with obstacle
-- DetectCollision function
-
-// Function to create a score label
-- Set score label properties
-
-// Function to update canvas
-- Clear the canvas
-- Move player
-- Draw player
-- Draw block
-- Move block towards the player
-- Detect collision
-- Draw score label
-
-// Create a function to generate a random number
-- To randomize the height and width of obstacles
-
-// Function to reset jump after delay
-- ResetJump function
-
-// Event listener for spacebar key to trigger jump
-- Document.body.onkeyup event
-
-// Additional functions for game flow
-- StartGame function
-- EndGame function
-- RestartGame function
-
-// Class for Snowflake object
-- X, y, size, speed
-- Draw function
-- Update function
-
-// Additional functions for audio and random number generation
-- PlayBackgroundMusic function
-- PlayThudSound function
-- RandomNumber function```
