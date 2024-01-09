@@ -115,6 +115,95 @@ Notes
 
 ## Technical Documentation
 
+### Overview
+
+JDM-R-Us is a web application dedicated to showcasing Japanese cars. It allows users to view, add, update, and delete car entries, as well as register and login to access personalized features.
+
+### Frontend
+
+Technologies Used
+
+- HTML
+- CSS
+- JavaScript
+
+Directory Structure
+
+- Index.html: The main entry point of the application. Features links to login and view the car feed.
+- Styles.css: Contains styling for the main page.
+
+Key Features
+
+- Welcome Page: A greeting and brief description of the site.
+- Navigation Links: Direct users to either log in or view the car feed.
+- Feed Directory
+- Feed.css: Styles for the car feed page.
+- Feed.html: Displays the car feed and provides functionality to add, update, and delete cars.
+- Feed.js: Handles the interaction with the backend API for car operations.
+
+### Backend
+
+Technologies Used
+
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+
+Directory Structure
+
+- Config: Contains the database configuration.
+- Controllers: Business logic for handling requests (carController.js, userController.js).
+- Data: Contains initial data for seeding the database.
+- Models: Database models (Car.js, User.js).
+- Routes: API routes (index.js).
+- Scripts: Database seeding script (seed.js).
+- Server.js: Entry point for the backend, setting up the server and middleware.
+- API Endpoints
+
+### Car Routes:
+
+GET /api/cars: Fetch all cars.
+
+POST /api/cars: Create a new car.
+
+PUT /api/cars/:make/:model/:year: Update a specific car.
+
+DELETE /api/cars/:make/:model/:year: Delete a specific car.
+
+User Routes:
+
+POST /api/users/register: Register a new user.
+
+POST /api/users/login: Login a user.
+
+POST /api/users/logout: Logout a user.
+
+### Database Models
+
+- Car: Represents a car with fields for make, model, and year.
+- User: Represents a user with fields for email and password.
+
+### Installation and Setup
+
+ #### Frontend: 
+ - Serve the front-end files using any static file server.
+
+#### Backend:
+
+- Install dependencies: npm install.
+- Set environment variables for database connection and session secret.
+- Run the server: node server.js.
+
+### Usage
+- Access the website via the front-end URL.
+- Register or log in to interact with car data.
+- View, add, update, or delete cars from the feed.
+
+### Future Enhancements
+- Implement user profiles and car likes.
+- Enhance UI/UX design.
+- Add more interactive features like car ratings or comments.
 
 
 ---
