@@ -99,13 +99,11 @@ Notes
 
 ## Attributions
 
-Credit any collaborators, mentors, or resources that contributed to the project.
+- https://mongoosejs.com/docs/guide.html.
+- OpenAI ChatGPT for assistance with providing valuable insights and guidance.
+- General Assembly Instructors Emre Surmeli and Greg Moreta.
 
 ## Next Steps
-
-Discuss future enhancements and features planned for the project.
-
-## Technical Documentation
 
 - Enhance the User Profile Page: Implement advanced functionalities such as 'likeToUserProfile' and 'AddCarToUserProfile'. This will enable users to personalize their profiles by liking other users or adding their favorite cars, fostering a more interactive and engaging community experience.
 
@@ -114,6 +112,10 @@ Discuss future enhancements and features planned for the project.
  - Incorporate Commenting Feature: Develop a robust commenting system that allows users to engage in discussions, share insights, and provide feedback about cars. This feature aims to enhance user interaction and community building, making the platform a dynamic space for car enthusiasts to connect and converse.
 
  - Revolutionize Car Cards with 3D Visualization and Detailed Information: Transform the presentation of cars on the platform by introducing 3D car cards. Each card will provide a detailed and interactive 3D view of the car, along with comprehensive information such as specifications, history, and unique features. This innovative approach will not only enrich the user experience but also set a new standard for online car databases.
+
+## Technical Documentation
+
+
 
 ---
 
